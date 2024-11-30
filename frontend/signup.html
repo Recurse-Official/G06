@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <style>
+   
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1b1b1b, #3d4b6e), url('OIP.jpeg'); 
+        background-size: cover; 
+        background-position: center; 
+        color: #72f4f8;
+        overflow: hidden;
+        animation: gradientAnimation 8s infinite alternate ease-in-out;
+      }
+      
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 130px;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      animation: floatLogo 3s infinite ease-in-out;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    header .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #fdfdfd;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    header nav a:hover {
+      color: #00ff00;
+      transform: scale(1.1);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .signup-box {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 600px;
+      animation: pulse 3s infinite;
+      position: relative;
+      z-index: 1; 
+    }
+
+    .signup-box h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.3s, background 0.3s;
+    }
+
+    .signup-box input:focus {
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      outline: none;
+    }
+
+    .signup-box input::placeholder {
+      color: #ddd;
+      font-style: italic;
+    }
+
+    .error-message {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      color: #ff5555;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+      display: none; 
+    }
+
+    .signup-box button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #ff4500, #ff1493);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.4s;
+    }
+
+    .signup-box button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #ff1493, #ff4500);
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.9); }
+    }
+
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
+      background: linear-gradient(45deg, #6a11cb, #ac31e1);
+      color: white;
+      padding: 50px 100px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 30px rgba(101, 65, 186, 0.7);
+      z-index: 1000; 
+      animation: fadeInOut 3s ease-in-out forwards;
+    }
+
+    .success-message::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: 0.3s;
+      animation: shineEffect 3s ease-in-out forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    @keyframes shineEffect {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .shift-form-left {
+      animation: shiftLeft 1s forwards;
+    }
+
+    @keyframes shiftLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <h1>Sign Up</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="signup-box" id="signupBox">
+      <h2>Create Your Account</h2>
+      <div class="error-message" id="errorMessage"></div>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <button onclick="handleSignup()">Sign Up</button>
+    </div>
+  </main>
+
+  <div class="success-message" id="successMessage">
+    Registration Successful!
+  </div>
+<script>
+  function handleSignup() {
+    const email = document.getElementById('email').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const confirmPassword = document.getElementById('confirmPassword').value.trim();
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+    const signupBox = document.getElementById('signupBox');
+  
+    errorMessage.style.display = 'none';
+    errorMessage.innerText = '';
+  
+    if (password !== confirmPassword) {
+      errorMessage.style.display = 'block';
+      errorMessage.innerText = 'Passwords do not match.';
+      return;
+    }
+  
+    if (!email || !username || !password) {
+      errorMessage.style.display = 'block';
+      errorMessage.innerText = 'All fields are required.';
+      return;
+    }
+  
+    signupBox.classList.add('shift-form-left');
+
+    successMessage.style.display = 'block';
+  
+   
+    setTimeout(() => {
+      
+      window.location.href = 'login.html';  
+    }, 3000); 
+}
+</script>
+
+</body>
+</html>
