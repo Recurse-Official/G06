@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2E004F, #7209B7, #2E004F);
+      color: white;
+      overflow: hidden;
+      animation: gradientAnimation 8s infinite alternate ease-in-out;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 130px;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      animation: floatLogo 3s infinite ease-in-out;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    header .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #201d0d;
+      text-shadow: 0 0 10px rgba(211, 122, 246, 0.7);
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    header nav a:hover {
+      color: #2f2f2b;
+      transform: scale(1.1);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 500px;
+      animation: pulse 3s infinite;
+    }
+
+    .login-box h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: box-shadow 0.3s, background 0.3s;
+    }
+
+    .login-box input:focus {
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      outline: none;
+    }
+
+    .login-box input::placeholder {
+      color: #ddd;
+      font-style: italic;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #0c0c0c, #0a0706);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.4s;
+    }
+
+    .login-box button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, black, grey);
+      box-shadow: 0 0 20px rgba(11, 11, 11, 0.8);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.9); }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.5rem; }
+      header nav a { font-size: 1rem; }
+      .login-box {
+        padding: 30px;
+      }
+      .login-box h2 {
+        font-size: 1.8rem;
+      }
+      .login-box input, .login-box button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <h1>My Application</h1>
+    </div>
+    <nav>
+      <a href="#">Option1</a>
+      <a href="#">Option2</a>
+      <a href="#">Option3</a>
+    </nav>
+  </header>
+  <main>
+    <div class="login-box">
+      <h2>Welcome Back!</h2>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button>Login</button>
+    </div>
+  </main>
+</body>
+</html>
